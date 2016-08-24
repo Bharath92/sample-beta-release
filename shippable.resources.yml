@@ -1,0 +1,13 @@
+resources:
+  - name: version-1
+    type: version
+    seed:
+      versionName: "0.0.0"
+  - name: version-2
+    type: version
+    seed:
+      versionName: "1.0.0"
+  - name: docker-opts-1
+    type: dockerOptions
+    version:
+      memory: 500

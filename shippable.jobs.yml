@@ -1,0 +1,41 @@
+jobs:
+  - name: release-1
+    type: release
+    steps:
+    - IN: docker-opts-1
+      switch: on
+    - IN: version-1
+      versionName: "0.0.0"
+    - TASK: managed
+      bump: patch
+  - name: release-2
+    type: release
+    steps:
+    - TASK: managed
+      bump: patch
+  - name: release-3
+    type: release
+    steps:
+    - IN: version-2
+    - IN: version-1
+    - TASK: managed
+      bump: patch
+  - name: release-4
+    type: release
+    steps:
+    - IN: docker-opts-1
+      switch: on
+    - IN: version-1
+      versionNumber: 1000
+    - TASK: managed
+      bump: patch
+  - name: release-6
+    type: release
+    steps:
+    - IN: docker-opts-1
+      switch: off
+    - IN: version-1
+      versionName: "0.0.0"
+      switch: off
+    - TASK: managed
+      bump: patch
